@@ -73,12 +73,12 @@ class YourComponent extends BaseClass{...}
 ```
 write
 ```js
-var ReactComponentWithMixins = require('react-es6-classy-mixins')
+import ReactComponentWithMixins from "react-es6-classy-mixins"
 class YourComponent extends ReactComponentWithMixins(mixins..., BaseClass){...}
 ```
 for example
 ```js
-var ReactComponentWithMixins = require('react-es6-classy-mixins')
+import ReactComponentWithMixins from "react-es6-classy-mixins"
 class YourComponent extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){...}
 ```
 ## Execution order
@@ -87,7 +87,7 @@ Mixins are executed from left to right
 If there are more than one mixin with method of the same name returning a value (like this.x()) , only leftmost value will be returned but ALL methods will be executed in left to right order!
 
 ```js
-var ReactComponentWithMixins = require('react-es6-classy-mixins')
+import ReactComponentWithMixins from "react-es6-classy-mixins"
 class WithMixins extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){...}
 ```
 
@@ -100,7 +100,7 @@ MixinB.componentDidMount()
 ```
 ---
 ```js
-var ReactComponentWithMixins = require('react-es6-classy-mixins')
+import ReactComponentWithMixins from "react-es6-classy-mixins"
 class WithExtendAndMixins extends ReactComponentWithMixins(MixinD, MixinB, WithMixins){...}
 ```
 
