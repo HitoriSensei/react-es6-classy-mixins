@@ -1,0 +1,33 @@
+{
+  "name": "react-es6-classy-mixins",
+  "version": "1.0.0",
+  "description": "React ES6 components with mixins",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepublish": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HitoriSensei/react-es6-classy-mixins.git"
+  },
+  "keywords": [
+    "react",
+    "es6",
+    "mixins"
+  ],
+  "author": "Piotr Hitori Bosak <piotr.hitori.bosak@gmail.com> (http://hitori.pl)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HitoriSensei/react-es6-classy-mixins/issues"
+  },
+  "homepage": "https://github.com/HitoriSensei/react-es6-classy-mixins#readme",
+  "devDependencies": {
+  	"gulp": "*",
+  	"gulp-babel": ">=6",
+  	"gulp-uglify": "*",
+  	"gulp-sourcemaps": "*",
+    "babel-preset-es2015": "*",
+    "babel-plugin-transform-es2015-modules-umd": "*"
+  }
+}
