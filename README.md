@@ -94,7 +94,7 @@ class WithMixins extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.
 ```js
 /* Order of execution (left to right): */
 
-Base.componentDidMount()
+WithMixins.componentDidMount()
 MixinC.componentDidMount()
 MixinB.componentDidMount()
 ```
@@ -106,10 +106,10 @@ class WithExtendAndMixins extends ReactComponentWithMixins(MixinD, MixinB, WithM
 
 ```js
 /* Order of execution (left to right): */
-Extended.componentDidMount()
+WithExtendAndMixins.componentDidMount()
 MixinD.componentDidMount()
 MixinB.componentDidMount()
-Base.componentDidMount()
+WithMixins.componentDidMount()
 MixinC.componentDidMount()
 MixinB.componentDidMount()
 ```
