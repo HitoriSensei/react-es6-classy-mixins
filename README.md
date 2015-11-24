@@ -35,7 +35,7 @@ var MixinB = {
     this.setState({mixinB: false})
   },
   componentDidMount: function(){
-    debuglog.innerHTML += "MixinB.componentDidMount()"
+    console.log("MixinB.componentDidMount()")
   },
   x: function(){
     return 1
@@ -44,7 +44,7 @@ var MixinB = {
 
 var MixinC = {
   componentDidMount: function(){
-    debuglog.innerHTML += "<br/>MixinC.componentDidMount()"
+    console.log("MixinC.componentDidMount()")
   },
   x: function(){
     return 2
@@ -53,7 +53,7 @@ var MixinC = {
 
 var MixinD = {
   componentDidMount: function(){
-    debuglog.innerHTML += "<br/>MixinD.componentDidMount()"
+    console.log("MixinD.componentDidMount()")
   },
   getInitialState: function () {
     return {
@@ -79,16 +79,30 @@ class YourComponent extends ReactComponentWithMixins(mixins..., BaseClass){...}
 for example
 ```js
 import ReactComponentWithMixins from "react-es6-classy-mixins"
-class YourComponent extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){...}
+class YourComponent extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){
+  componentDidMount(){
+    console.log("YourComponent.componentDidMount()")
+    super()
+  }
+  ...
+}
 ```
+You have to call `super()` if you want to execute mixin methods of the same name.
+
 ## Execution order
-Mixins are executed from left to right
+Mixins are executed from left to right.
 
 If there are more than one mixin with method of the same name returning a value (like this.x()) , only leftmost value will be returned but ALL methods will be executed in left to right order!
 
 ```js
 import ReactComponentWithMixins from "react-es6-classy-mixins"
-class WithMixins extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){...}
+class WithMixins extends ReactComponentWithMixins(MixinC, MixinB, MixinA, React.Component){
+  componentDidMount(){
+    console.log("WithMixins.componentDidMount()")
+    super()
+  }
+  ...
+}
 ```
 
 ```js
@@ -101,7 +115,13 @@ MixinB.componentDidMount()
 ---
 ```js
 import ReactComponentWithMixins from "react-es6-classy-mixins"
-class WithExtendAndMixins extends ReactComponentWithMixins(MixinD, MixinB, WithMixins){...}
+class WithExtendAndMixins extends ReactComponentWithMixins(MixinD, MixinB, WithMixins){
+  componentDidMount(){
+    console.log("WithMixins.componentDidMount()")
+    super()
+  }
+  ...
+}
 ```
 
 ```js
